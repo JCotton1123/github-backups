@@ -38,6 +38,8 @@ function main(){
             }
         }
     }
+    $repoList = array_unique($repoList);
+    $repoList = array_values($repoList); # Re-index
 
     $instanceBackupDir = $configData['directory'] . "/" . date('Y-m-d');
     exec("mkdir -p {$instanceBackupDir}");
