@@ -47,10 +47,10 @@ function main(){
     foreach($repoList as $repoUrl){
         preg_match('/:(.*)\//', $repoUrl, $matches);
         $entity = $matches[1]; # User or Org
-        $entityBackupDir = $instanceBackupDir . "/" . $entity;
-        exec("mkdir -p {$entityBackupDir}");
-        chdir($entityBackupDir);
+        exec("mkdir -p {$entity}");
+        chdir($entity);
         exec("git clone --mirror {$repoUrl}");
+        chdir("../");
     }
 }
 
